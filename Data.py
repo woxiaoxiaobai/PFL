@@ -163,9 +163,9 @@ class Data(object):
             splited_testset = random_split(testset, num_test, generator=torch.Generator().manual_seed(42))
 
 
-        self.test_all = DataLoader(testset, batch_size=args.batchsize, shuffle=True, num_workers=4)
-        self.train_loader = [DataLoader(splited_trainset[i], batch_size=args.batchsize, shuffle=True, num_workers=4)
+        self.test_all = DataLoader(testset, batch_size=args.batchsize, shuffle=True, num_workers=0)
+        self.train_loader = [DataLoader(splited_trainset[i], batch_size=args.batchsize, shuffle=True, num_workers=0)
                              for i in range(args.node_num)]
 #         self.test_loader = [DataLoader(splited_testset[i], batch_size=args.batchsize, shuffle=True, num_workers=4)
 #                             for i in range(args.node_num)]
-        self.test_loader = DataLoader(testset, batch_size=args.batchsize, shuffle=True, num_workers=4)
+        self.test_loader = DataLoader(testset, batch_size=args.batchsize, shuffle=True, num_workers=0)
